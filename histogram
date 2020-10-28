@@ -1,0 +1,21 @@
+Mengenal dan Membuat Distribusi Data dengan Histogram
+
+nama_dataframe[["nama_kolom"]].plot.hist(bins=jumlah_bins)
+
+Beberapa atribut penting dalam histogram pandas:
+-------------------------------------------------
+bins = jumlah_bins dalam histogram yang akan digunakan. Jika tidak didefinisikan jumlah_bins, maka function akan secara default menentukan jumlah_bins sebanyak 10.
+by = Kolom di DataFrame untuk di group by. (valuenya berupa nama column di dataframe tersebut).
+alpha = Menentukan opacity dari plot di histogram. (value berupa range 0.0 - 1.0, dimana semakin kecil akan semakin kecil opacity nya)
+figsize = digunakan untuk menentukan ukuran dari plot histogram. Contoh: figsize=(10,12)
+
+contoh
+-----------------------------------------------------------------------------------------------
+import pandas as pd
+import matplotlib.pyplot as plt
+order_df = pd.read_csv("https://dqlab-dataset.s3-ap-southeast-1.amazonaws.com/order.csv")
+# plot histogram kolom: price
+order_df[["price"]].hist(figsize=(4, 5), bins=10, xlabelsize=8, ylabelsize=8)
+plt.show()  # Untuk menampilkan histogram plot
+----------------------------------------------------------------------------------------------
+
