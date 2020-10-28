@@ -1,0 +1,5 @@
+Deviasi dan Varians pada Pandas
+
+print([nama_dataset].loc[:, "nama_kolom"].std())
+print([nama_dataset].loc[:, "nama_kolom"].var())
+
