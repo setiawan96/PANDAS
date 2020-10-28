@@ -1,0 +1,5 @@
+#membaca file CSV
+[nama_variabel] = pd.read_csv("nama_file.csv")
+
+#membaca file EXCEL
+[nama_variabel] = pd.read_excel("nama_file.xls")
