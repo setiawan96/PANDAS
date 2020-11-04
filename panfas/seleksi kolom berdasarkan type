@@ -1,0 +1,56 @@
+import pandas as pd
+import numpy as np
+
+
+n_rows = 5
+n_cols = 2
+cols= ['bil_pecahan','bil_bulat']
+
+df =pd.DataFrame(np.random.randint(1, 20, size=(n_rows, n_cols)),
+			  columns=cols)
+
+df['bil_pecahan'] = df['bil_pecahan'].astype('float')
+df.index = pd.util.testing.makeDateIndex(n_rows, freq='H')
+df = df.reset_index()
+
+df['teks'] = list('ABCDE')
+print(df)
+
+                                                                index  bil_pecahan  bil_bulat teks
+                                                0 2000-01-01 00:00:00         14.0         11    A
+                                                1 2000-01-01 01:00:00         13.0         10    B
+                                                2 2000-01-01 02:00:00          3.0          9    C
+                                                3 2000-01-01 03:00:00          3.0         15    D
+                                                4 2000-01-01 04:00:00          8.0          2    E
+                                                
+                                                
+ memilih kolom berdasarkkan type
+ 
+ 
+ df.select_dtypes(include='number')
+                                         bil_pecahan  bil_bulat
+                                      0         19.0         16
+                                      1         13.0          8
+                                      2          5.0          1
+                                      3          9.0         17
+                                      4         19.0         18
+                      
+ 
+ df.select_dtypes(include='float')
+                                           bil_pecahan
+                                        0          3.0
+                                        1          3.0
+                                        2         17.0
+                                        3          4.0
+                                        4          5.0
+  
+ df.select_dtypes(include='int')
+ 
+                                            bil_bulat
+                                        0          2
+                                        1         10
+                                        2          6
+                                        3          5
+                                        4         10
+  df.select_dtypes(include='datetime')
+ 
