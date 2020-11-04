@@ -1,0 +1,26 @@
+import pandas as pd
+
+data_dict = {'col1':['1','2','3','teks'],
+		'col2':['1','2','3','4']}
+
+df=pd.DataFrame(data_dict)
+
+#df_x = df.astype({'col2':'int'})
+print(df_x)
+
+                   col1  col2
+                0     1     1
+                1     2     2
+                2     3     3
+                3  teks     4
+
+#jika ada value yg tdk bisa di konversi maka menggunakan fungsi to_numeric
+
+df_x =df.apply(pd.to_numeric, errors='coerce')
+print(df_x)
+
+                    col1  col2
+                  0   1.0     1
+                  1   2.0     2
+                  2   3.0     3
+                  3   NaN     4
