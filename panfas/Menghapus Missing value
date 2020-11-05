@@ -1,0 +1,42 @@
+df = pd.util.testing.makeMissingDataframe().reset_index()
+df =df.rename(columns={'index':'Z'})
+print(df.head())
+
+
+                   Z         A         B         C         D
+        0  dXxgKflbAB -0.103413 -2.167430 -1.263740 -0.712291
+        1  Wvi6i7YNhX -2.070498 -0.948661 -0.603923  0.609784
+        2  2m2bNokaHu  0.039166 -0.530373  1.654283  0.698430
+        3  Pj18YEVA3r -0.058093 -0.501574 -0.296997  0.680013
+        4  cdGIjlxdAL  0.561932 -1.477379 -0.699287  0.771931
+
+
+  menghapus kolom yang mengandung missing value
+
+          df = df.dropna(axis='columns')
+          print(df.head())
+          
+  menghapus baris yang mengandung missing valu
+           df = df.dropna(axis='rows')
+          print(df.head())
+          
+          
+          
+  Melihat presentase missing value untuk tiap kolom
+  df = df.isna().mean()
+  
+                    Z    0.000000
+                    A    0.066667
+                    B    0.133333
+                    C    0.133333
+                    D    0.066667
+                    dtype: float64
+                    
+   Menghapus /drop setiap kolom yang mengandung missing values berdasarkan trhreshold 
+   
+   treshold = len(df) * 0.9
+   df = df.dropna(thresh=treshold, axis='columns')
+   
+   
+   
+ 
