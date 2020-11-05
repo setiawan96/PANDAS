@@ -1,0 +1,32 @@
+import pandas as pd
+import numpy as np
+
+data = {'A' :['15','15','18',np.nan,'12'],
+		'B' :['15','15','18',np.nan,'12']}
+
+df = pd.DataFrame(data)
+
+print(df)
+
+                        A    B
+                      0   15   15
+                      1   15   15
+                      2   18   18
+                      3  NaN  NaN
+                      4   12   12
+
+
+s =df['A'] == df['B']
+p =df['A'].equals(df['B'])
+
+print(s)
+
+
+                          0     True
+                          1     True
+                          2     True
+                          3    False
+                          4     True
+                          dtype: bool
+
+print(p)                    True
