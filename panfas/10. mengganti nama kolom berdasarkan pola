@@ -1,0 +1,23 @@
+menamai kolom
+---------------
+df.columns= ['Pclass', 'Survival status', 'full Name', 'sex ',' Age','Sib SP', 'Parch', 'Ticket', 'Fare', 'Cabin', 'Embarked']
+
+
+menggunakan lowercase untuk nama kolom dan mengganti spasi dengan _
+--------------------------------------------------------------------
+
+df.columns= df.columns.str.replace('','_').str.lower()
+df.head()
+
+(nama kolom sesudah)
+pclass  survival_status  full_name  sex_  _Age  sib_sp  parch  ticket  fare  cabin  embarked
+
+
+memangkas kelebihan spasi
+-------------------------
+df.columns= df.columns.str.lower().str.strip().str.replace('','_')
+df.heaf()
+
+(nama kolom sesudah) str.strip berguna untuk menghapus spasi di kanan atau kiri string nama kolom
+
+pclass  survival_status  full_name  sex  Age  sib_sp  parch  ticket  fare  cabin  embarked
