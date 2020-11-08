@@ -1,0 +1,31 @@
+import pandas as pd
+
+
+data = {'nama' : ['Didi kempot', 'Glen Fredly', 'Mbah Surip'],
+	    'tempat_kelahiran': ['Surakarta, Jawa Tengah', 'Jakarta, DKI Jakarta', 'Mojokerto, Jawa Timur']}
+df = pd.DataFrame(data)
+
+print(df)
+
+
+                                    nama        tempat_kelahiran
+                              0  Didi kempot    Surakarta, Jawa Tengah
+                              1  Glen Fredly    Jakarta, DKI Jakarta
+                              2   Mbah Surip    Mojokerto, Jawa Timur
+                          
+ df[['nama_depan','nama_belakang']] =df['nama'].str.split(' ', expand=True)
+ print(df)
+
+                                     nama        tempat_kelahiran nama_depan nama_belakang
+                          0   Didi kempot  Surakarta, Jawa Tengah       Didi        kempot
+                          1  Glenn Fredly    Jakarta, DKI Jakarta      Glenn        Fredly
+                          2    Mbah Surip   Mojokerto, Jawa Timur       Mbah         Surip
+                          
+                          
+ df[['nama_kota','nama_provinsi']] =df['tempat_kelahiran'].str.split(',', expand=True)
+
+
+                                     nama        tempat_kelahiran        nama_kota        nama_provinsi
+                               0   Didi kempot  Surakarta, Jawa Tengah    Surakarta       Jawa Tengah
+                               1  Glenn Fredly    Jakarta, DKI Jakarta    Jakarta         DKI Jakarta
+                               2    Mbah Surip   Mojokerto, Jawa Timur    Mojokerto       Jawa Timur
