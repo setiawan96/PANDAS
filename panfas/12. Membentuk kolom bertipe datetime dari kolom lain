@@ -1,0 +1,32 @@
+import pandas as pd
+
+data = {'day' :[1, 2, 10, 25, 12],
+		'month' : [1, 2, 4, 5, 6],
+		'year' : [2000, 2001, 2010, 2015, 2020]}
+df = pd.DataFrame(data)
+
+print(df)
+
+                                          day  month  year
+                                          0    1      1  2000
+                                          1    2      2  2001
+                                          2   10      4  2010
+                                          3   25      5  2015
+                                          4   12      6  2020
+
+#sudah
+df['penanggalan'] = pd.to_datetime(df[['day','month','year']])
+
+
+                             day  month  year penanggalan
+                          0    1      1  2000  2000-01-01
+                          1    2      2  2001  2001-02-02
+                          2   10      4  2010  2010-04-10
+                          3   25      5  2015  2015-05-25
+                          4   12      6  2020  2020-06-12
+                          
+                          day                     int64
+                          month                   int64
+                          year                    int64
+                          penanggalan    datetime64[ns]
+                          dtype: object
