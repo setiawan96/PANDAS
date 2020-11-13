@@ -1,0 +1,10 @@
+df.resample('M')['col1'].sum().to_frame()
+
+
+
+ket :
+
+M month
+H hour
+Y years
+D day
