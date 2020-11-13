@@ -1,0 +1,32 @@
+1. data ductionary
+
+pd.DataFrame({'col1' :[1, 2, 3, 4],
+              'col2' :[14 5, 6, 8]})
+              
+              
+              
+ 2.dari NUMPY array
+ 
+ 
+ 
+ n_rows = 5
+ n_cols = 4
+ 
+ arr = np.random.randint(1, 8 , size=(n_rows,n_cols))
+ arr
+ 
+ pd.DataFrame(arr, columns=tuple('ABC'))
+ 
+ 
+ 
+ 3. pandas.util.testing
+ 
+ pd.util.testing.makeDataFrame().head()
+ 
+ pd.util.testing.makeMixedDataFrame().head()
+ 
+ pd.util.testing.maketimeDataFrame().head()
+ 
+ pd.util.testing.makeMissingDataFrame().head()
+ 
+ 
