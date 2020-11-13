@@ -1,0 +1,3 @@
+df.groupby(['sex', 'pclass']) ['survived].mean().frame()
+
+df.groupby(['sex', 'pclass']) ['survived].mean().unstuck()
