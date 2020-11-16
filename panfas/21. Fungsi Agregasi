@@ -1,0 +1,7 @@
+df.groupby('Species')['peatalLegts'].count().to_frame()
+df.groupby('Species')['peatalLegts'].median().to_frame()
+df.groupby('Species')['peatalLegts'].mean().to_frame()
+
+
+df.groupby('Species')['peatalLegts'].agg(['count','mean','median'])
+df.groupby('Species')['peatalLegts'].descirbe()
