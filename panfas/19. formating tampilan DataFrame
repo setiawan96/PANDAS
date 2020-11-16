@@ -1,0 +1,77 @@
+import pandas as pd
+import numpy as np
+
+
+n_rows = 5
+n_cols = 2
+cols= ['omset','operasional']
+
+df =pd.DataFrame(np.random.randint(1, 20, size=(n_rows, n_cols)),
+			  columns=cols)
+
+print(df)
+
+
+  omset  operasional
+0      4           19
+1     19            3
+2      4            4
+3      5            8
+4     17            2
+
+
+
+df['omset'] = df['omset']* 100000
+df['operasional'] = df['operasional']* 10000
+
+  omset  operasional
+0  1700000       130000
+1  1300000       170000
+2   100000        90000
+3   100000        30000
+4   600000       100000
+
+df.index = pd.util.testing.makeDateIndex(n_rows, freq='D')
+df = df.reset_index()
+df = df.rename(columns={'index':'tanggal'})
+
+tanggal    omset  operasional
+0 2000-01-01  1700000       130000
+1 2000-01-02  1300000       170000
+2 2000-01-03   100000        90000
+3 2000-01-04  100000         30000
+4 2000-01-05  600000        100000
+
+
+---------------------------------FORMATING -------------------------------------
+
+
+formatku ={'tanggal':'{%d/%m/%y}',
+		    'operasional':'Rp  {:.2f}',
+		    'omset':'Rp  {:.2f}'}
+
+laporan =df.style.format(formatku)
+print(laporan) 
+
+#ini typenya bukan dataframe tapi styler
+
+
+tanggal    omset  operasional
+0 01/01/00  Rp 1700000.00       Rp 130000.00
+1 02/01/00  Rp 1300000.00       Rp 170000.00
+2 03/01/00  Rp 100000.00        Rp 90000.00
+3 04/01/00  Rp 100000.00        Rp 30000.00
+4 05/01/00  Rp 600000.00        Rp 100000.00
+
+
+laporan.hide_index()
+laporan.set_caption('Data omset dan Operasional')
+
+laporan.highlight_min('omset', color='pink')
+laporan.highlight_max('omset', color='lightgreen')
+
+laporan.highlight_min('operasional', color='blue')
+laporan.highlight_max('operasional', color='yellow')
+
+
+
