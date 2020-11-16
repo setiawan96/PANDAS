@@ -1,0 +1,9 @@
+
+memantau penggunaan memori data frame
+df.info(memory_usage='deep')
+
+
+
+memantau penggunaan memori untuk setiap kolom dari data frame
+
+df.info(memory_usage(deep='True')
